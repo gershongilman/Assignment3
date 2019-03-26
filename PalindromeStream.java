@@ -1,4 +1,5 @@
-
+package Stream;
+import filters.PalindromeFilter;
 public class PalindromeStream extends StringStream {
 	private PalindromeFilter filter;
 	private boolean firstiteration = false;
@@ -24,10 +25,6 @@ public class PalindromeStream extends StringStream {
 		return out;
 	}
 
-	
-	
-		
-	
 	public static void main(String args[]) {
 		PalindromeStream test = new PalindromeStream("zzzz");
 		for(int i = 0; i < 10; i++) {
@@ -36,3 +33,4 @@ public class PalindromeStream extends StringStream {
 
 	}
 }
+

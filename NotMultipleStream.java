@@ -1,4 +1,8 @@
-	/**
+package Stream;
+
+import filters.NotMultipleFilter;
+
+/**
 	 * @author Gershon Gilman
 	 *This class returns a stream in numeric order, integers that are not a multiples of a number set by the user that are greater than a certain initial value
 	 */
@@ -23,16 +27,23 @@
 		 * To return the next integer that is not a multiple of base using NotMultipleFilter
 		 */
 		public int next() {
-			int nextValue = getValue();
+			int nextValue = getValue() + 1;
 			while(!filter.passFilter(nextValue)) {
 				nextValue += 1;
 			}
-			setValue(nextValue + 1);
+			setValue(nextValue);
 			return nextValue;
 		}
+		
+		
 		public static void main(String args[]) {
-			NotMultipleStream test = new NotMultipleStream(4,3);
+			NotMultipleStream test = new NotMultipleStream(2,8);
 			System.out.println(test.next());
+			System.out.println(test.next());
+			System.out.println(test.next());
+			System.out.println(test.next());
+			
+			test =  new NotMultipleStream(2,3);
 			System.out.println(test.next());
 			System.out.println(test.next());
 			System.out.println(test.next());

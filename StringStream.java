@@ -1,3 +1,4 @@
+package Stream;
 
 public class StringStream extends Stream {
 	private boolean firstVal = false;

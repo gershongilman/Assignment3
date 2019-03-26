@@ -1,4 +1,6 @@
+package Stream;
 
+import filters.NotMultipleFilter;
 public class PrimeStream extends IntegerStream{
 	private NotMultipleFilter filter;
 	public PrimeStream() {
@@ -12,10 +14,7 @@ public class PrimeStream extends IntegerStream{
 				super.next();
 			}
 			filter = new NotMultipleFilter(getValue(),filter);
-			
 			return getValue();
-		
-		
 	}
 	public static void main(String args[]) {
 		PrimeStream test = new PrimeStream();

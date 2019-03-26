@@ -1,4 +1,6 @@
+package util;
 
+//import Stream.IntegerStream;
 public class IntegerPair {
 	private int value1 = 0;
 	private int value2 = 0;
@@ -29,6 +31,10 @@ public class IntegerPair {
 		return "(" + value1 + "," + value2 + ")";
 	}
 	
+	public static void main(String args[]) {
+		IntegerPair test = new IntegerPair(2,3);
+		System.out.println(test.toString());
+	}
 	
 }
 

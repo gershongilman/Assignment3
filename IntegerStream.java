@@ -1,3 +1,4 @@
+package Stream;
 /**
  * @author Gershon Gilman
  *This class produces a stream of continous consecutive integers 
@@ -27,6 +28,10 @@ public class IntegerStream extends Stream {
 	public int getValue() {
 		return currentVal;
 	}
+	@Override
+	public String toString() {
+		return String.valueOf(currentVal);
+	}
 	
 	/**
 	 * Setter to set the current value
@@ -36,10 +41,12 @@ public class IntegerStream extends Stream {
 		currentVal = value;
 	}
 	public static void main(String args[]) {
-		IntegerStream test = new IntegerStream(1);
+		IntegerStream test = new IntegerStream(19);
 		System.out.println(test.next());
 		System.out.println(test.next());
 		System.out.println(test.next());
 		System.out.println(test.next());
 	}
+
+
 }
