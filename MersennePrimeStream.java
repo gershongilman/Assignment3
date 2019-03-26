@@ -1,18 +1,18 @@
 
 public class MersennePrimeStream extends IntegerStream {
 	private MersenneFilter filter;
-	private PrimeStream stream;
+	private PrimeStream primeStream;
 	
 	public MersennePrimeStream() {
 		super(2);
-		stream = new PrimeStream();
+		primeStream = new PrimeStream();
 		filter = new MersenneFilter();
 	}
 	
 	@Override
 	public int next() {
 		while(!filter.passFilter(getValue())) {
-			setValue(stream.next());
+			setValue(primeStream.next());
 		}
 		return getValue();
 	}
