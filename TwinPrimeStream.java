@@ -1,12 +1,13 @@
 package Stream;
 import util.IntegerPair;
-import util.StreamUtilities;
 
 public class TwinPrimeStream extends Stream {
 	private IntegerPair currentPair;
-	
+	private PrimeStream primeStream;
 	public TwinPrimeStream() {
 		setCurrentPair(new IntegerPair(3, 5));
+		primeStream = new PrimeStream();
+			
 	}
 
 	public IntegerPair getCurrentPair() {
@@ -20,24 +21,21 @@ public class TwinPrimeStream extends Stream {
 	/**
 	 * @return the next value in the stream
 	 */
-	public IntegerPair next() {
-		int value1 = StreamUtilities.calculateNextPrimeNumber( currentPair.getValue1() , getFilter());
-		int value2 = StreamUtilities.calculateNextPrimeNumber( value1 , getFilter());
-		while (value2 - value1 != 2) {
-			 value1 = StreamUtilities.calculateNextPrimeNumber(value2 , getFilter());
-			 value2 = StreamUtilities.calculateNextPrimeNumber( value1 , getFilter());
-		
-		}
-		currentPair = new IntegerPair(value1, value2);
-		
-		return currentPair;
-	}
+	public IntegerPair next(){
+		IntegerPair out;
 
-	@Override
-	public String toString() {
-		
-		return currentPair.toString();
+		while(currentPair.getValue1() + 2 != currentPair.getValue2()) {
+				currentPair.setValue1(currentPair.getValue2());
+				currentPair.setValue2(primeStream.next());
+				System.out.println("in line");
+			}
+			out = getCurrentPair();
+			currentPair.setValue1(currentPair.getValue2());
+			currentPair.setValue2(primeStream.next());
+			return out;
 	}
+		
+
 	public static void main(String args[]) {
 		TwinPrimeStream test = new TwinPrimeStream();
 		System.out.println(test.next());

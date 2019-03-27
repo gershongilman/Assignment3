@@ -1,6 +1,6 @@
 package Stream;
-
 import filters.NotMultipleFilter;
+
 public class PrimeStream extends IntegerStream{
 	private NotMultipleFilter filter;
 	public PrimeStream() {
