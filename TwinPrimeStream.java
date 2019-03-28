@@ -14,17 +14,16 @@ public class TwinPrimeStream extends Stream {
 	
 	//we take no input but we know the first twin primes are (3,5) so I started with (2,3) so that we iterate in the program to return the (3,5) first
 	public TwinPrimeStream() {
-		currentPair = new IntegerPair(2, 3);
+		currentPair = new IntegerPair(3,5);
 		primeStream = new PrimeStream();
-			
 	}
 
 	/**
 	 * Iterate through primes to find pairs of primes that are two away from each other and returns this
-	 * @return a string with an integer pair of primes
+	 * @return an IntegerPair type with an integer pair of primes that are 2 apart from each other
 	 */
 	public IntegerPair next(){
-		IntegerPair out; 													//so that we can store the next value in the getters and setters we use this local variable
+		IntegerPair out;													//so that we can store the next value in the getters and setters we use this local variable
 		
 		//we know the main idea is the difference should be two so we iterate the values using prime stream till its true
 		while(currentPair.getValue1() + 2 != currentPair.getValue2()) {
@@ -37,6 +36,7 @@ public class TwinPrimeStream extends Stream {
 		currentPair.setValue2(primeStream.next());
 		return out;
 	}
+	
 	public static void main(String args[]) {
 		TwinPrimeStream test = new TwinPrimeStream();
 		System.out.println(test.next());
