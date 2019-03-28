@@ -15,6 +15,8 @@ public class StreamUtilities {
 	 * @param x, an integer
 	 */
 	public static void print(Stream input, int x) {
+		
+		//going through the stream we print it out
 		for(int i = 0; i < x; i++) {
 			System.out.println(input.toString());
 		}
@@ -28,6 +30,8 @@ public class StreamUtilities {
 	 */
 	public int sum(IntegerStream input, int x) {
 		int sum = 0;
+		
+		//going through stream we add the previous sum to the next number for x number of times
 		for(int i = 0; i < x; i++) {
 			sum += input.next();
 		}
@@ -41,8 +45,10 @@ public class StreamUtilities {
 	 * @return will return the product of the x number of integers in a specific stream
 	 */
 	public int product(IntegerStream input, int x) {
-		int product = 1;
-		for(int i = 1; i < x; i++) {
+		int product = 1;												//product cannot start at 0, bc then all results are zero, so this is to store the output and set correctly
+		
+		//getting the product by going through the stream and getting the product
+		for(int i = 0; i < x; i++) {
 				product *= input.next();
 			
 		}
@@ -65,10 +71,12 @@ public class StreamUtilities {
 	}
 	public static void main(String args[]) {
 		StreamUtilities test = new StreamUtilities();
-		IntegerStream  f = new IntegerStream(2);
-		System.out.println(f.next());
+		IntegerStream  f = new IntegerStream(0);
 		
-		System.out.println(test.product(f,3));
-	//	System.out.println(test.next());
+		//System.out.println(f.next());
+		
+		System.out.println(test.sum(f,4));
+		System.out.println(f.getValue());
+		//	System.out.println(test.next());
 	}
 }
